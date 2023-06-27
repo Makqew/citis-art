@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
+@font-face {
+  font-family: "Stolzl";
+  src: url("/fonts/stolzl_regular.otf");
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +13,7 @@
 body, h1, h2, p, ul{
   margin: 0;
   padding: 0;
-  font-family: Arial
+  font-family: "Stolzl";
 }
 nav, h1, h2{
   color: #284120;
@@ -221,9 +225,14 @@ h2{
 
 /* РАЗДЕЛ НАША КОМАНДА */
 
-
+#team {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 96px 0;
+}
 #team-list{
-  top:-200px;
+  /* top:-200px; */
   position:relative;
   display: flex;
   gap: 6vw;/*96px*/
