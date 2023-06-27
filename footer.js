@@ -23,11 +23,23 @@ var circles = [
     friction: 0.25,
     icon: new Image(),
     link: "mailto:info@citiss.art" 
+  },
+  {
+    x: canvas.width / 2 + 1000,  // Initial x-coordinate
+    y: -200,                    // Initial y-coordinate
+    radius: 200,
+    velocityX: -1,             // Initial horizontal velocity
+    velocityY: 0,              // Initial vertical velocity
+    acceleration: 0.5,         // Gravitational acceleration
+    friction: 0.25,
+    icon: new Image(),
+    link: "https://t.me/c/1181873141/1681" 
   }
 ];
 
 circles[0].icon.src = "images/instagram_fill_icon.svg";  // Path to the first icon image
 circles[1].icon.src = "images/mail_fill_icon.svg"  ;  // Path to the second icon image
+circles[2].icon.src = "images/telegram_plane_icon.svg"  ;  // Path to the second icon image
 canvas.width = window.innerWidth - 96;
 canvas.height = window.innerHeight;
 
@@ -41,20 +53,6 @@ function resizeCanvas() {
 };
 resizeCanvas();
 
-// function drawText() {
-//     var text = "Мы готовы к сотрудничеству с заказчиками разного уровня и будем рады реализовать новые проекты. Свяжитесь с нами и мы обсудим ваш проект!";
-//   var fontSize = 20;
-//   var fontFamily = "Arial";
-  
-//   ctx.font = fontSize + "px " + fontFamily;
-//   ctx.fillStyle = "black";
-
-//   var textWidth = ctx.measureText(text).width;
-//   var x = (canvas.width - textWidth) / 2; // Center the text horizontally
-//   var y = 40; // Vertical position of the text
-
-//   ctx.fillText(text, x, y);
-//   }
 
 function drawCircle(circle) {
   ctx.beginPath();
@@ -81,7 +79,7 @@ function drawCircle(circle) {
   //   circle.color = "blue";  // Restore the circle's color when not hovering
   //   drawCircle(circle);    // Redraw the circle with the original color
   // });
-  //очень многго ресурсов забирает?
+  //очень многго ресурсов забирает
   canvas.addEventListener("click", function(event) {
     var rect = canvas.getBoundingClientRect();
     var clickX = event.clientX - rect.left;
