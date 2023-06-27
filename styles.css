@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, p, ul{
+  margin: 0;
+  padding: 0;
+  font-family: Arial
+}
+nav, h1, h2{
+  color: #284120;
+}
+nav, #first-content, #second-content{
+  padding: 0px 48px;
+}
+nav, #first-content{
+  background-color: #79DF55;
+}
+
+nav{
+  display: flex;
+  gap: 64px;
+  padding: 24px 48px;
+}
+#start, #center, #end{
+  align-self: center;
+}
+div#start{
+  flex-grow: 4;
+}
+ul{
+  display: flex;
+  height: 80px;
+  gap: 24px;
+}
+
+li {
+  list-style:none;
+  align-self: center;
+}
+#end{
+  flex-grow: 1;
+}
+#end button{
+  flex-grow: 2;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 200px;
+  border: none;
+  background-color: #fff;
+}
+
+
+/* РАЗДЕЛ ГЛАВНЫЙ */
+#first-content{
+}
+
+h1{
+  padding-top: 64px;
+  font-size: 14vw;
+  text-align: center;
+  font-family: 'Fugaz One', cursive;
+  line-height: 140%;
+}
+
+h2{
+  font-size: 4.5vw;
+  text-align: center;
+}
+
+#illustration{
+  margin-top: 64px;
+  height: 1400px;
+  min-height: 30vh;
+}
+
+.eyes-container{
+  position: relative;
+  display: flex;
+  justify-content:center;
+  top: 80px;
+  width: 100%;
+
+}
+
+.eyes-container .eyes {
+  position: relative;
+  width: 224px;
+  height: 224px;
+  display: block;
+  background-color: #fff;
+  margin: 0 20px;
+  border-radius: 50%;
+}
+
+.eyes-container .eyes::before {
+  content: "";
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.pupil{
+  top: 50%;
+  left: 10%;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.card {
+  height:39vw;
+  border-radius: 1vw;
+  position: relative;
+}
+
+.card1 {
+  width: 85%;
+  left: calc((100% - 85%)/2);
+  background-color: #71CF50;
+  z-index: 1;
+}
+
+.card2 {
+  background-color: #6DC74D;
+  width: 95%;
+  left: calc((100% - 95%)/2);
+  top: calc(2.5vw - 39vw);
+  z-index: 2;
+}
+
+.card3 {
+  background-color: rgba(255,255,255);
+  top: calc(5vw - 39vw * 2);
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* РАЗДЕЛ НАШИ УСЛУГИ */
+#second-content{
+  display: grid;
+  grid-template-rows: 0.333fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 160px 48px;
+  transition: background-color 0.3s ease;
+}
+
+.about-service{
+  grid-column: 2/5;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 24px;
+  align-items: start;
+  
+}
+
+.about-service h2, .about-service p{
+  color: #787878;
+  transition: color 0.3s ease;
+}
+
+.hovered h2, .hovered p{
+  color: rgba(255,255,255,0.6)
+}
+#second-content .white-text h2{
+  color: #ffffff;
+}
+
+.about-service h2{
+  grid-column: 1/5;
+  text-align: left;
+  font-size: 48px;
+}
+
+.about-service p{
+  grid-column: 5/10;
+  font-size: 24px;
+}
+
+#service-list{
+  grid-column: 2/5;
+  grid-row: 2/-1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service{
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
+  border-bottom: 1px solid #262626
+}
+
+.service .thumbnail{
+  width: 96px;
+  height: 96px;
+  background: #000000;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.service h2{
+  text-align: left;
+  color: #262626;
+  font-weight: 300;
+}
+
+/* РАЗДЕЛ НАША КОМАНДА */
+
+
+#team-list{
+  top:-200px;
+  position:relative;
+  display: flex;
+  gap: 6vw;/*96px*/
+  margin: 0 10vw;/*240px*/
+}
+
+#team h1{
+  position: relative;
+  top: 200px;
+}
+
+#team h1, .profile-card h2, .profile-card p{
+  color: #262626;
+}
+
+.profile-card{
+  width: 100%;
+  background-color: #9658C6;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.profile-card img{
+  box-sizing: border-box;
+  width: 100%;
+  height: 22vw;/*400px*/
+  object-fit: cover;
+  border: 8px solid rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+}
+
+.profile-card h2{
+  margin-top: 24px;
+  font-size: 48px;
+}
+
+.profile-card p{
+  margin-top: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.profile-card:nth-child(1){
+  background-color: #C498E8;
+}
+
+.profile-card:nth-child(2){
+  background-color: #A773CF;
+}
+
+#footer canvas {
+  background-color: #79DF55;
+  overflow: hidden;
+  margin-left: 48px;
+  margin-bottom: 48px;
+  border-radius: 24px;
+}
+#footer .cta-text{
+  position: relative;
+  top: 300px;
+  width: 940px;
+  margin: 0 auto;
+}
+.cta-text{
+  
+}
+.cta-text h2 {
+  margin-top: 24px;
+  font-size: 40px;
+}
+
+.cta-text p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  color: #284120;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "citis-art",
+  "version": "1.0.0",
+  "description": "Animation studio landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "citis-aart"
+  },
+  "keywords": [
+    "css",
+    "js",
+    "animation"
+  ],
+  "author": "Maksat",
+  "license": "ISC"
+}
