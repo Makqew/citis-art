@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 var circles = [
   {
     x: 0,   // Initial x-coordinate
-    y: -200,                 // Initial y-coordinate
+    y: 0,                 // Initial y-coordinate
     radius: 200,
     velocityX: 2,          // Initial horizontal velocity
     velocityY: 0,          // Initial vertical velocity
@@ -15,7 +15,7 @@ var circles = [
   },
   {
     x: canvas.width / 2 + 500,  // Initial x-coordinate
-    y: -200,                    // Initial y-coordinate
+    y: 0,                    // Initial y-coordinate
     radius: 200,
     velocityX: -1,             // Initial horizontal velocity
     velocityY: 0,              // Initial vertical velocity
@@ -26,9 +26,9 @@ var circles = [
   },
   {
     x: canvas.width / 2 + 1000,  // Initial x-coordinate
-    y: -200,                    // Initial y-coordinate
+    y: -300,                    // Initial y-coordinate
     radius: 200,
-    velocityX: -1,             // Initial horizontal velocity
+    velocityX: 1,             // Initial horizontal velocity
     velocityY: 0,              // Initial vertical velocity
     acceleration: 0.5,         // Gravitational acceleration
     friction: 0.25,
@@ -44,14 +44,34 @@ canvas.width = window.innerWidth - 96;
 canvas.height = window.innerHeight;
 
 function resizeCanvas() { 
-  canvas.width = window.innerWidth - 96;
-  canvas.height = window.innerHeight;
-  console.log("width:" + canvas.width + ", " + "height" + canvas.height)
-  circles.forEach(function(circle) {
-    circle.radius = circle.radius / canvas.width * window.innerWidth;
-  });
+  if(canvas.width < 480){
+    console.log("Weh")
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    circles.forEach(function(circle) {
+      circle.radius = circle.radius / canvas.width * window.innerWidth / 2;
+      circle.x = circle.x / canvas.width * window.innerWidth;
+      console.log(circle.radius)
+    });
+  } else if(canvas.width > 480 && canvas.width < 768){
+    canvas.width = window.innerWidth - 48;
+    canvas.height = window.innerHeight;
+    circles.forEach(function(circle) {
+      circle.radius = circle.radius / canvas.width * window.innerWidth / 2;
+      circle.x = circle.x / canvas.width * window.innerWidth;
+      console.log(circle.radius)
+    });
+  }
+  // canvas.width = window.innerWidth - 96;
+  // canvas.height = window.innerHeight;
+  // // console.log("width:" + canvas.width + ", " + "height" + canvas.height)
+  // circles.forEach(function(circle) {
+  //   circle.radius = circle.radius / canvas.width * window.innerWidth / 4;
+  //   circle.x = circle.x / canvas.width * window.innerWidth / 2;
+  //   console.log(circle.radius)
+  // });
 };
-resizeCanvas();
+// resizeCanvas();
 
 
 function drawCircle(circle) {
@@ -113,6 +133,7 @@ function checkCollision(circleA, circleB) {
     circleB.velocityX *= -1;
     circleB.velocityY *= -1;
   }
+  console.log(circleA.friction)
 }
 
 function updateCircles(time) {
@@ -124,19 +145,19 @@ function updateCircles(time) {
     circle.velocityY += circle.acceleration;  // Update vertical velocity
     circle.y += circle.velocityY;             // Update y-coordinate
     
-    circle.x += circle.velocityX/circle.friction;             // Update x-coordinate
+    circle.x += circle.velocityX / circle.friction;             // Update x-coordinate
     // Check if the circle hits the bottom of the canvas
     if (circle.y + circle.radius > canvas.height) {
       circle.y = canvas.height - circle.radius;  // Reset y-coordinate
       circle.velocityY *= -0.8;                  // Reverse vertical velocity with damping
-      circle.friction += 0.1;
+      circle.friction += 0.2;
     }
 
     // Check if the circle hits the sides of the canvas
     if (circle.x + circle.radius > canvas.width) {
       circle.x = canvas.width - circle.radius;  // Adjust x-coordinate to stay within the canvas
       circle.velocityX *= -0.8;                    // Reverse horizontal velocity
-      circle.friction += 0.1;
+      circle.friction += 0.2;
       
     } else if (circle.x - circle.radius < 0) {
       circle.x = circle.radius;                 // Adjust x-coordinate to stay within the canvas
@@ -152,7 +173,7 @@ function updateCircles(time) {
   }
   // drawText();
 
-  if(time < 15000){
+  if(time < 30000){
     requestAnimationFrame(updateCircles);
   }else{
     console.log(Math.abs(circle.velocityY))
@@ -162,7 +183,7 @@ function updateCircles(time) {
   }
 }
 
-// window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
 
 
 
