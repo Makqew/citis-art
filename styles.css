@@ -13,7 +13,7 @@
 body, h1, h2, p, ul{
   margin: 0;
   padding: 0;
-  font-family: "Stolzl";
+  font-family: "Stolzl", "Arial";
 }
 nav, h1, h2{
   color: #284120;
@@ -49,6 +49,7 @@ li {
 }
 
 li a {
+  font-weight: 500;
   text-decoration: none;
   color:#284120;
 }
@@ -175,6 +176,7 @@ h2{
   grid-template-rows: 0.333fr 1fr 1fr;
   grid-template-columns: repeat(4, 1fr);
   padding: 160px 48px;
+  background-color: #F2F2F2;
   transition: background-color 0.3s ease;
 }
 
@@ -332,6 +334,61 @@ h2{
   display: none;
 }
 
+@media (max-width: 1440px) {
+  #illustration{
+    margin-top: 0px;
+    height: 948px;
+  }
+
+
+  /* Раздел наша команда */
+  #team-list{
+
+    gap: 48px;
+    margin: 0 48px;
+  }
+
+
+
+
+  #footer{
+    display: none;
+  }
+  #footer-mobile{
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+    margin: 0 48px 48px 48px;
+    padding: 48px 48px;
+    background-color: #79DF55;
+    border-radius: 16px;
+  }
+  #footer-mobile > .cta-text h2{
+    /* font-size: 16px; */
+    font-weight: 400;
+  }
+  #footer-mobile .socials{
+    display: flex;
+    gap: 24px;
+    width: 100%;
+  }
+  #footer-mobile > .socials a{
+    display: flex;
+    width: 100%;
+    padding: 48px 16px;
+    margin: 0 auto;
+    background-color: #C9F2BB;
+    border-radius: 24px;
+    justify-content: center;
+  }
+  #footer-mobile > .socials a:hover{
+    background-color: #e9ffe1;
+  }
+  #footer-mobile > .socials > a > div img{
+    width: 124px;
+    align-self: center;
+  }
+}
 @media (max-width: 480px) {
   nav{
     padding: 0px;

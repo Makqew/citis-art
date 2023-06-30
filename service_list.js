@@ -28,7 +28,7 @@ serviceArr.forEach((element, index) => {
     });
   
     element.addEventListener('mouseleave', () => {
-      serviceSec.style.backgroundColor = '#ffffff'; // Change to the default background color
+      serviceSec.style.backgroundColor = '#F2F2F2'; // Change to the default background color
       serviceText.classList.remove('hovered');
       element.classList.remove('white-text');
 
