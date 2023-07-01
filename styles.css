@@ -371,6 +371,9 @@ h2{
     /* font-size: 16px; */
     font-weight: 400;
   }
+  #footer-mobile > .cta-text p{
+    font-size: 48px;
+  }
   #footer-mobile .socials{
     display: flex;
     gap: 24px;
